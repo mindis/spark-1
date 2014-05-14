@@ -65,7 +65,7 @@ object MimaBuild {
     /* Excludes specific to a given version of Spark. When comparing the given version against
        its immediate predecessor, the excludes listed here will be applied. */
     val versionExcludes =
-      SparkBuild.SPARK_VERSION match {
+      SparkBuild.sparkVersion match {
         case v if v.startsWith("1.0") =>
           Seq(
             excludeSparkPackage("api.java"),

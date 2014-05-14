@@ -24,9 +24,9 @@ export SPARK_HOME="$FWDIR"
 EXAMPLES_DIR="$FWDIR"/examples
 
 if [ -f "$FWDIR/RELEASE" ]; then
-  export SPARK_EXAMPLES_JAR=`ls "$FWDIR"/lib/spark-examples-*hadoop*.jar`
-elif [ -e "$EXAMPLES_DIR"/target/scala-$SCALA_VERSION/spark-examples-*hadoop*.jar ]; then
-  export SPARK_EXAMPLES_JAR=`ls "$EXAMPLES_DIR"/target/scala-$SCALA_VERSION/spark-examples-*hadoop*.jar`
+  export SPARK_EXAMPLES_JAR=`ls "$FWDIR"/lib/spark-examples*assembly*.jar`
+elif [ -e "$EXAMPLES_DIR"/target/scala-$SCALA_VERSION/spark-examples*assembly*.jar ]; then
+  export SPARK_EXAMPLES_JAR=`ls "$EXAMPLES_DIR"/target/scala-$SCALA_VERSION/spark-examples*assembly*.jar`
 fi
 
 if [[ -z $SPARK_EXAMPLES_JAR ]]; then
