@@ -32,11 +32,16 @@ object SparkBuild extends PomBuild {
 
   val buildLocation = (file(".").getAbsoluteFile.getParentFile)
 
-  override val profiles = Seq()
+  override val profiles = Properties.envOrNone("MAVEN_PROFILES") match {
+    case None => Seq() // No profiles applied uses the default build.
+    case Some(v) => v.replaceAll("-P", "").split(",").map(_.trim).toSeq
+  }
 
   lazy val sharedSettings = graphSettings ++ ScalaStyleSettings ++ MimaBuild.mimaSettings(file(sparkHome))
 
   override def settings = {
+    println("profile:"+profiles.mkString("\n"))
+    println(s"props:+${System.getProperties}")
     super.settings ++ Seq(SbtPomKeys.profiles := profiles)
   }
 
