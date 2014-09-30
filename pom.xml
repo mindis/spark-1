@@ -100,12 +100,15 @@
     <module>external/flume</module>
     <module>external/flume-sink</module>
     <module>external/mqtt</module>
+    <module>external/zeromq</module>
+    <module>examples</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+    <akka.group>org.spark-project.akka</akka.group>
+    <akka.version>2.3.4-spark</akka.version>
     <java.version>1.6</java.version>
     <sbt.project.name>spark</sbt.project.name>
     <scala.macros.version>2.0.1</scala.macros.version>
@@ -136,6 +139,60 @@
   </properties>
 
   <repositories>
+    <repository>
+      <id>staging-1</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1062</url>
+    </repository>
+    <repository>
+      <id>staging-2</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1063</url>
+    </repository>
+    <repository>
+      <id>staging-3</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1064</url>
+    </repository>
+    <repository>
+      <id>staging-4</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1065</url>
+    </repository>
+    <repository>
+      <id>staging-5</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1066</url>
+    </repository>
+    <repository>
+      <id>staging-6</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1067</url>
+    </repository>
+    <repository>
+      <id>staging-7</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1068</url>
+    </repository>
+    <repository>
+      <id>staging-8</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1069</url>
+    </repository>
+    <repository>
+      <id>staging-9</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1070</url>
+    </repository>
+    <repository>
+      <id>staging-10</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1071</url>
+    </repository>    <repository>
+      <id>staging-11</id>
+      <name>orgspark-project-1062</name>
+      <url>https://oss.sonatype.org/content/repositories/orgspark-project-1072</url>
+    </repository>
     <repository>
       <id>central</id>
       <!-- This should be at top, it makes maven try the central repo first and then others and hence faster dep resolution -->
@@ -1255,8 +1312,6 @@
       <properties>
         <scala.version>2.10.4</scala.version>
         <scala.binary.version>2.10</scala.binary.version>
-        <akka.group>com.typesafe.akka</akka.group>
-        <akka.version>2.3.5</akka.version>
       </properties>
 
       <dependencies>
@@ -1278,8 +1333,6 @@
       </dependencies>
       <modules>
         <module>external/kafka</module>
-        <module>external/zeromq</module>
-        <module>examples</module>
         <module>repl</module>
       </modules>
     </profile>
@@ -1290,12 +1343,8 @@
         <activeByDefault>false</activeByDefault>
       </activation>
       <properties>
-        <hadoop.version>2.2.0</hadoop.version>
-        <protobuf.version>2.5.0</protobuf.version>
         <scala.version>2.11.2</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
-        <akka.group>com.typesafe.akka</akka.group>
-        <akka.version>2.3.5</akka.version>
       </properties>
       <dependencies>
         <dependency>
@@ -1316,9 +1365,7 @@
       </dependencies>
 
       <modules>
-        <!-- These modules will be soon enabled -->
-        <!-- <module>external/zeromq</module> -->
-        <!-- <module>external/kafka</module> -->
+
         <module>examples</module>
         <!-- <module>repl</module> -->
       </modules>
